@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 const mysql = require("mysql2");
 
-app.get("/", (req, res) => res.send("Express on Vercel"));
+app.get("/", (req, res) => res.send("UKCC Backend running"));
 app.use(cors());
 app.use(express.json());
 app.listen(8081, () => console.log("Server ready on port 8081."));
@@ -408,7 +408,5 @@ app.get("/booked-sessions/:userId", (req, res) => {
     return res.status(200).json(data);
   });
 });
-
-module.exports = app;
 
 module.exports = app;
