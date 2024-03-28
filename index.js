@@ -149,8 +149,8 @@ app.post("/signup", (req, res) => {
   });
 });
 
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
+app.get("/login/:username/:password", (req, res) => {
+  const { username, password } = req.params;
 
   const sql = "SELECT * FROM users WHERE UserName = ? AND Password = ?";
   db.query(sql, [username, password], (err, data) => {
