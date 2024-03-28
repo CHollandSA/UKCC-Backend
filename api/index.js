@@ -42,11 +42,10 @@ app.get("/users/:username", (req, res) => {
   });
 });
 
-// Add this route handler for fetching users and deleting user records
+// Add error handling and logging for fetching users
 app.get("/users", (req, res) => {
-  const sql = `
-      SELECT * FROM users
-    `;
+  const sql = `SELECT * FROM users`;
+  console.log("Executing SQL query:", sql);
   db.query(sql, (err, data) => {
     if (err) {
       console.error("Error fetching users:", err);
