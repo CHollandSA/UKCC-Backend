@@ -42,16 +42,15 @@ app.get("/users/:username", (req, res) => {
   });
 });
 
-// Add error handling and logging for fetching users
 app.get("/users", (req, res) => {
-  const sql = `SELECT * FROM users`;
-  console.log("Executing SQL query:", sql);
+  const sql = `
+      SELECT * FROM users
+    `;
   db.query(sql, (err, data) => {
     if (err) {
       console.error("Error fetching users:", err);
       return res.status(500).json({ error: "Internal Server Error" });
     }
-
     return res.status(200).json(data);
   });
 });
